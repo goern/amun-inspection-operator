@@ -1,2 +1,23 @@
 ---
-# tasks file for inspection
+- name: "create InspectionBuild for this Inspection"
+  k8s:
+    definition:
+      kind: InspectionBuild
+      apiVersion: amun.thoth-station.ninja/v1alpha1
+      metadata:
+        name: "{{ meta.name }}"
+        namespace: "{{ meta.namespace }}"
+      spec:
+        source:
+          git:
+            uri: "{{ source.git.uri }}"
+            ref: "{{ source.git.ref }}"
+          strategy:
+            name: "{{ source.source_strategy.name }}"
+        resources:
+          requests:
+            cpu: "{{ build_environment.resources.requests.cpu }}"
+            memory: "{{ build_environment.resources.requests.memory }}"
+            cpu_family: "{{ build_environment.resources.requests.cpu_family }}"
+            cpu_model: "{{ build_environment.resources.requests.cpu_model }}"
+            physical_cpu_total: "{{ build_environment.resources.requests.physical_cpu_total }}"

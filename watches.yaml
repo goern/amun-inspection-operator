@@ -3,3 +3,8 @@
   group: amun.thoth-station.ninja
   kind: Inspection
   role: /opt/ansible/roles/inspection
+
+- version: v1alpha1
+  group: amun.thoth-station.ninja
+  kind: InspectionBuild
+  role: /opt/ansible/reconcile_inspectionbuild.yaml

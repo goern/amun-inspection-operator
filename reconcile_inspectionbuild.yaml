@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - name: "dump data"
+      debug:
+        var: hostvars[inventory_hostname]
