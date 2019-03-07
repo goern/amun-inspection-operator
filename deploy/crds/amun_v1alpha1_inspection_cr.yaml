@@ -1,0 +1,7 @@
+apiVersion: amun.thoth-station.ninja/v1alpha1
+kind: Inspection
+metadata:
+  name: example-inspection
+spec:
+  # Add fields here
+  size: 3
